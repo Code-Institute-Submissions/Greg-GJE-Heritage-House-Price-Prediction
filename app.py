@@ -1,3 +1,7 @@
+import os
+
+port = int(os.environ.get("PORT", 8501))
+st.port = port
 # Using Anaconda because default Python Don't have these libraries while Anaconda has
 import streamlit as st
 import pandas as pd
