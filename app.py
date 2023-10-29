@@ -14,7 +14,15 @@ st.port = port
 train = pd.read_csv('train.csv')
 test = pd.read_csv('test.csv', index_col=0)
 data = pd.concat([train, test], axis=1)
+
 houses_data = pd.read_csv('prediction_data_edited.csv')
+
+keep_cols = ['1stFlrSF', '2ndFlrSF', 'BedroomAbvGr', 'BsmtFinSF1', 'GarageArea', 
+             'GrLivArea', 'LotArea', 'MasVnrArea', 'OpenPorchSF', 'OverallCond',
+             'OverallQual', 'TotalBsmtSF', 'YearBuilt', 'YearRemodAdd']
+
+houses_data = houses_data[keep_cols]
+
 st.set_option('deprecation.showPyplotGlobalUse', False)
 # Load Model
 model = joblib.load('xgb_r2.pkl')
